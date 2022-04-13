@@ -41,15 +41,18 @@ app.get('/calendar', (req,res) => {
 
 app.get('/artists', (req,res) => {
   const allArtists = Object.fromEntries(Object.entries(artData).filter((key) => key.includes('artists')));
-  res.send(allArtists)
+  const filterArtists = Object.values(allArtists)[0];
+  res.send(filterArtists)
 })
 
 app.get("/calendar/weekday/:day", (req, res) => {
   const { day } = req.params 
 
-  const individualDays = weekdays.filter((item) => item.weekday[0])
+  // const individualDays = weekdays.filter((item) => item.weekday[0])
+  // const individualDays = weekdays.map(function (el) {return entry.getValue(el.weekday)})
 
-  res.send(individualDays)
+
+  res.send(weekdays)
 
 })
 
